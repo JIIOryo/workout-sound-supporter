@@ -5,9 +5,20 @@
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
+    // デコレーターを使用する
+    "experimentalDecorators": true,
     "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@": ["."],
+      "@/*": ["./*"],
+    }
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "./dist/",
+    "./node_modules/",
   ]
 }

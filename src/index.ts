@@ -1,13 +1,6 @@
-
-import express from 'express'
-
-const app = express()
-const PORT = 3001
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`)
-})
+export * as config from './config'
+export * as CONSTANT from './constant'
+export * as di from './di'
+export * as infra from './infra'
+export * as lib from './lib'
+export * as util from './util'
