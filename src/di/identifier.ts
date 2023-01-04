@@ -1,4 +1,5 @@
 export const Identifier = {
+  Config: Symbol('Config'),
   Repository: {
     RunningHistory: Symbol('Repository.RunningHistory'),
     RunningMenu: Symbol('Repository.RunningMenu'),
@@ -6,4 +7,15 @@ export const Identifier = {
     WorkoutHistory: Symbol('Repository.WorkoutHistory'),
     WorkoutMenu: Symbol('Repository.WorkoutMenu'),
   },
+  Infra: {
+    Logger: Symbol('Infra.Logger'),
+  },
+  Server: {
+    Api: Symbol('Server.Api'),
+  },
+  Handler: {
+    Workout: {
+      GetMenus: Symbol('Handler.Workout.GetMenus'),
+    }
+  }
 }

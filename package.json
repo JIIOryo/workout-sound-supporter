@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && tsc && tsc-alias",
-    "watch": "rm -rf dist && tsc -w & tsc-alias -w"
+    "watch": "rm -rf dist && tsc -w & tsc-alias -w",
+    "start": "node dist/entrypoint.js"
   },
   "repository": {
     "type": "git",

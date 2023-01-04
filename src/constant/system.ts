@@ -10,11 +10,18 @@ export const NOTIFICATION_TYPE = {
  */
 export const DB_DIRNAME = 'db'
 
- /**
-  * DBのタイプ
-  */
+/**
+ * DBのタイプ
+ */
 export const DB_TYPE = {
   JSON: 'json',
+} as const
+
+/**
+ * Loggerのタイプ
+ */
+export const LOGGER_TYPE = {
+  CONSOLE: 'console',
 } as const
 
 /**

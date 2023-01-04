@@ -1,8 +1,9 @@
 import {Container} from 'inversify'
 
-import {CONSTANT, di} from '@'
+import {CONSTANT} from '@'
 import {Interface, Impl} from '@/repository'
 import {Config} from '@/types'
+import * as di from '@/di'
 
 /**
  * Repository Injection
