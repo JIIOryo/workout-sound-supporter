@@ -18,7 +18,7 @@ export type WorkoutHistory = {
    * - メニューの内容が変更された場合でも、履歴には変更前の内容が残る
    * - 実行時のメニューの中身がそのままコピーされる
    */
-  workoutMenu: Domain.Workout.WorkoutMenuUnit[]
+  units: Domain.Workout.WorkoutMenuUnit[]
   /**
    * 実行日時
    */

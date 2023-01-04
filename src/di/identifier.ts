@@ -14,8 +14,8 @@ export const Identifier = {
     Api: Symbol('Server.Api'),
   },
   Handler: {
-    Workout: {
-      GetMenus: Symbol('Handler.Workout.GetMenus'),
-    }
+    Workout: Symbol('Handler.Workout'),
+    Run: Symbol('Handler.Run'),
+    Meal: Symbol('Handler.Meal'),
   }
 }

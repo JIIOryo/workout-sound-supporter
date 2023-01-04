@@ -13,6 +13,10 @@ export type WorkoutMenu = {
    */
   name: string
   /**
+   * 説明
+   */
+  description: string
+  /**
    * 構成するメニューのunit一覧
    */
   units: Domain.Workout.WorkoutMenuUnit[]

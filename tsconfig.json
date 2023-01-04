@@ -10,7 +10,11 @@
     "esModuleInterop": true,
     // デコレーターを使用する
     "experimentalDecorators": true,
+    // ソースマップファイルを生成する
+    "sourceMap": true,
+    // コンパイル後のファイル出力先
     "outDir": "./dist",
+    // ベースとなるURL
     "baseUrl": "./src",
     "paths": {
       "@": ["."],

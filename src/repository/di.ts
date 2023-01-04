@@ -14,6 +14,7 @@ export const inject = (container: Container, dbConfig: Config['db']): void => {
   switch (dbConfig.type) {
     case CONSTANT.SYSTEM.DB_TYPE.JSON: {
       container.bind<Interface.IWorkoutHistoryRepository>(di.Identifier.Repository.WorkoutHistory).to(Impl.WorkoutHistoryJsonFileRepository)
+      container.bind<Interface.IWorkoutMenuRepository>(di.Identifier.Repository.WorkoutMenu).to(Impl.WorkoutMenuJsonFileRepository)
       break
     }
     default: {

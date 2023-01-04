@@ -8,6 +8,7 @@ import * as _server from '@/server'
 
 export * as config from '@/config'
 export * as util from '@/util'
+export * as domain from '@/domain'
 export {infra, lib}
 
 /** logger */

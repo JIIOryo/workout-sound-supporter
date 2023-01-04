@@ -5,7 +5,7 @@ import * as server from '@/server'
 /**
  * express request
  */
-export class ExpressRequest<Query = any, Params = any, ReqSchema = any> implements server.Request.Interface.IRequest<Query, Params, ReqSchema> {
+export class ExpressRequest<ReqSchema = any, Params = any, Query = any> implements server.Request.Interface.IRequest<ReqSchema, Params, Query> {
   /**
    * expressのrequest
    */

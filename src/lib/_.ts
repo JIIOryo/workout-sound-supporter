@@ -1,4 +1,5 @@
 import * as lodash from 'lodash'
+import * as uuid from 'uuid'
 
 import {Util} from '@/types'
 
@@ -29,4 +30,12 @@ export function includes<T>(dict: Util.Dictionary<string, T> | Util.Dictionary<n
 export function each<V, K extends string>(obj: { [_K in K]?: V }, callback: (v: V, k: K) => void): { [_K in K]?: V } {
   // @ts-expect-error TS-2769
   return lodash.each(obj, callback)
+}
+
+/**
+ * uuidを生成する
+ * @returns uuid
+ */
+export function generateUuid(): string {
+  return uuid.v4().replace(/-/g, '')
 }
