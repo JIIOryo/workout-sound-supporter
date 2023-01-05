@@ -13,5 +13,11 @@ export const prd: Config = {
       enabled: true,
       port: 5000,
     },
+  },
+  notification: {
+    enabled: true,
+    lineNotify: {
+      enabled: true,
+    },
   }
 }

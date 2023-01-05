@@ -6,12 +6,13 @@ import * as domain from '@/domain'
 import * as repository from '@/repository'
 import * as infra from '@/infra'
 import * as server from '@/server'
-import {Handler, DB, Util} from '@/types'
+import {Handler, DB, Config} from '@/types'
 
 @injectable()
 export class WorkoutHandler {
   constructor(
     @inject(di.Identifier.Infra.Logger) private readonly logger: infra.logger.Interface.ILogger,
+    @inject(di.Identifier.Infra.Notify) private readonly notify: infra.notify.Interface.INotify,
     @inject(di.Identifier.Repository.WorkoutMenu) private readonly workoutMenuRepository: repository.Interface.IWorkoutMenuRepository,
     @inject(di.Identifier.Repository.WorkoutHistory) private readonly workoutHistoryRepository: repository.Interface.IWorkoutHistoryRepository,
   ) {}
@@ -186,6 +187,9 @@ export class WorkoutHandler {
       executedAt,
     }
     await this.workoutHistoryRepository.add(newWorkoutHistory)
+
+    // 通知を送信する
+    await this.notify.message(domain.workout.buildWorkoutNotificationMessage(workoutMenu))
 
     res.send({})
   }

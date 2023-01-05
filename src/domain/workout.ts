@@ -92,3 +92,17 @@ export const isCorrectWorkoutMenuUnit = (workoutMenuUnit: unknown): workoutMenuU
     typeof (workoutMenuUnit as Domain.Workout.WorkoutMenuUnit).restSec === 'number'
   )
 }
+
+/**
+ * workoutの実行通知用メッセージを生成する
+ * @param workoutMenu メニュー
+ * @returns メッセージ
+ */
+export const buildWorkoutNotificationMessage = (workoutMenu: DB.WorkoutMenu): string => {
+  return `
+  「${workoutMenu.name}」をやったよ！🎉
+  ${workoutMenu.units.map((unit) => {
+    return `\n・「${unit.name}」を${unit.intervalSec}秒間隔で${unit.soundCount}回 × ${unit.setCount}セット`
+  }).join('')}
+  `
+}

@@ -31,3 +31,8 @@ export const ENV = {
   LOCAL: 'local',
   PRD: 'prd',
 } as const
+
+/**
+ * line notifyのURL
+ */
+export const LINE_NOTIFY_URL = 'https://notify-api.line.me/api/notify'

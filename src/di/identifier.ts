@@ -9,6 +9,7 @@ export const Identifier = {
   },
   Infra: {
     Logger: Symbol('Infra.Logger'),
+    Notify: Symbol('Infra.Notify'),
   },
   Server: {
     Api: Symbol('Server.Api'),

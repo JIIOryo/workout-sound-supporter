@@ -36,6 +36,9 @@ server.di.inject(rootContainer, config.server)
 // handlerのinject
 handler.di.inject(rootContainer)
 
+// notifyのinject
+infra.notify.di.inject(rootContainer, config.notification)
+
 /**
  * inject済のDI Container
  */

@@ -9,8 +9,4 @@ export type User = {
    * ユーザー名
    */
   name: string
-  /**
-   * 実行通知設定
-   */
-  notification: Domain.Notification.UserNotificationConfig
 }
