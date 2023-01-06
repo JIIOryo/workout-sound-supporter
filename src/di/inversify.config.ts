@@ -4,6 +4,7 @@ import {Container} from 'inversify'
 import * as _config from '@/config'
 import * as repository from '@/repository'
 import * as infra from '@/infra'
+import * as domain from '@/domain'
 import * as server from '@/server'
 import * as handler from '@/handler'
 import {Identifier} from './identifier'
@@ -38,6 +39,12 @@ handler.di.inject(rootContainer)
 
 // notifyのinject
 infra.notify.di.inject(rootContainer, config.notification)
+
+// soundのinject
+infra.sound.di.inject(rootContainer, config.sound)
+
+// domainのinject
+domain.di.inject(rootContainer)
 
 /**
  * inject済のDI Container

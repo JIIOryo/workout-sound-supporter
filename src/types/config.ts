@@ -80,6 +80,46 @@ export type NotificationConfig =
   | NotificationConfigEnabledFalse
   | NotificationConfigEnabledTrue
 
+/**
+ * サウンドの実行にpythonのスクリプトを利用する場合の設定
+ */
+export type SoundConfigPythonScriptEnabledTrue = {
+  /** 利用する */
+  enabled: true
+  /**
+   * pythonのスクリプトのパス
+   * - リポジトリのルートからのパス
+   */
+  scriptPath: string
+  /**
+   * pythonの実行コマンド
+   * @example 'python', 'python3'
+   */
+  command: string
+  /**
+   * ラズパイの設定
+   */
+  raspberryPi: {
+    /**
+     * GPIOのピン番号
+     */
+    pin: number
+  }
+}
+/**
+ * サウンドの実行にpythonのスクリプトを利用しない場合の設定
+ */
+export type SoundConfigPythonScriptEnabledFalse = {
+  /** 利用しない */
+  enabled: false
+}
+
+/**
+ * サウンドの実行にpythonのスクリプトを利用するかどうかの設定
+ */
+export type SoundConfigPythonScript =
+  | SoundConfigPythonScriptEnabledTrue
+  | SoundConfigPythonScriptEnabledFalse
 
 /**
  * Configの型
@@ -102,4 +142,9 @@ export type Config = {
   }
   /** 通知設定 */
   notification: NotificationConfig
+  /** サウンドの設定 */
+  sound: {
+    /** pythonのスクリプトで実行する */
+    pythonScript: SoundConfigPythonScript
+  }
 }

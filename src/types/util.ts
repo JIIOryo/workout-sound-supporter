@@ -31,6 +31,11 @@ export namespace Number {
 export type Port = number
 
 /**
+ * プロセスID
+ */
+export type Pid = number
+
+/**
  * HTTP関連の型
  */
 export namespace Http {

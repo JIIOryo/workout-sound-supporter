@@ -12,7 +12,7 @@ import {Handler, DB, Config} from '@/types'
 export class WorkoutHandler {
   constructor(
     @inject(di.Identifier.Infra.Logger) private readonly logger: infra.logger.Interface.ILogger,
-    @inject(di.Identifier.Infra.Notify) private readonly notify: infra.notify.Interface.INotify,
+    @inject(di.Identifier.Domain.Workout) private readonly workoutDomain: domain.WorkoutDomain,
     @inject(di.Identifier.Repository.WorkoutMenu) private readonly workoutMenuRepository: repository.Interface.IWorkoutMenuRepository,
     @inject(di.Identifier.Repository.WorkoutHistory) private readonly workoutHistoryRepository: repository.Interface.IWorkoutHistoryRepository,
   ) {}
@@ -45,7 +45,7 @@ export class WorkoutHandler {
     const workoutMenuId = params.id
 
     // バリデーション
-    if (!domain.workout.isWorkoutMenuId(workoutMenuId)) {
+    if (!this.workoutDomain.isWorkoutMenuId(workoutMenuId)) {
       throw new Error(`Invalid workoutMenuId. workoutMenuId: ${workoutMenuId}`)
     }
 
@@ -76,7 +76,7 @@ export class WorkoutHandler {
     const updatedAt = now
 
     const newWorkoutMenu: DB.WorkoutMenu = {
-      id: domain.workout.generateWorkoutMenuId(),
+      id: this.workoutDomain.generateWorkoutMenuId(),
       ...data,
       createdAt,
       updatedAt,
@@ -100,7 +100,7 @@ export class WorkoutHandler {
     const workoutMenuId = params.id
 
     // バリデーション
-    if (!domain.workout.isWorkoutMenuId(workoutMenuId)) {
+    if (!this.workoutDomain.isWorkoutMenuId(workoutMenuId)) {
       throw new Error(`invalid workout menu id: ${workoutMenuId}`)
     }
 
@@ -135,7 +135,7 @@ export class WorkoutHandler {
     const workoutMenuId = params.id
 
     // バリデーション
-    if (!domain.workout.isWorkoutMenuId(workoutMenuId)) {
+    if (!this.workoutDomain.isWorkoutMenuId(workoutMenuId)) {
       throw new Error(`invalid workout menu id: ${workoutMenuId}`)
     }
 
@@ -162,7 +162,7 @@ export class WorkoutHandler {
     const workoutMenuId = data.id
 
     // バリデーション
-    if (!domain.workout.isWorkoutMenuId(workoutMenuId)) {
+    if (!this.workoutDomain.isWorkoutMenuId(workoutMenuId)) {
       throw new Error(`invalid workout menu id: ${workoutMenuId}`)
     }
 
@@ -173,24 +173,24 @@ export class WorkoutHandler {
       throw new Error(`workout menu not found: ${workoutMenuId}`)
     }
 
-    // TODO: メニューに沿ってworkoutの実行
+    // メニューに沿ってworkoutの実行 (非同期)
+    void this.workoutDomain.play(userId, workoutMenu).catch((err) => {
+      this.logger.error(`WorkoutHandler.playWorkout: error: ${err}`)
+    })
 
-    const now = Date.now()
-    const executedAt = now
+    res.send({})
+  }
 
-    // 実行が正常に終了したら履歴を作成
-    const newWorkoutHistory: DB.WorkoutHistory = {
-      id: domain.workout.generateWorkoutHistoryId(executedAt, workoutMenuId, userId),
-      userId,
-      workoutMenuId,
-      units: workoutMenu.units,
-      executedAt,
-    }
-    await this.workoutHistoryRepository.add(newWorkoutHistory)
-
-    // 通知を送信する
-    await this.notify.message(domain.workout.buildWorkoutNotificationMessage(workoutMenu))
-
+  /**
+   * 実行の停止
+   * @param req リクエスト
+   * @param res レスポンス
+   */
+  public stopWorkout: handler.Interface.IHandlerFunction = async (
+    req: server.Request.Interface.IRequest<Handler.Workout.StopWorkout.Request>,
+    res: server.Response.Interface.IResponse<Handler.Workout.StopWorkout.Response>,
+  ): Promise<void> => {
+    await this.workoutDomain.stop()
     res.send({})
   }
 

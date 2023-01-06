@@ -24,7 +24,7 @@ export class WorkoutMenuJsonFileRepository implements Interface.IWorkoutMenuRepo
 
   async create(workoutMenu: DB.WorkoutMenu): Promise<void> {
     // 作成前にバリデーションを行う
-    if (!domain.workout.isCorrectWorkoutMenu(workoutMenu)) {
+    if (!domain.WorkoutDomain.isCorrectWorkoutMenu(workoutMenu)) {
       throw new Error(`Invalid workoutMenu. workoutMenu: ${JSON.stringify(workoutMenu)}`)
     }
 
@@ -35,7 +35,7 @@ export class WorkoutMenuJsonFileRepository implements Interface.IWorkoutMenuRepo
 
   async update(id: Domain.Workout.WorkoutMenuId, workoutMenu: DB.WorkoutMenu): Promise<void> {
     // 更新前にバリデーションを行う
-    if (!domain.workout.isCorrectWorkoutMenu(workoutMenu)) {
+    if (!domain.WorkoutDomain.isCorrectWorkoutMenu(workoutMenu)) {
       throw new Error(`Invalid workoutMenu. workoutMenu: ${JSON.stringify(workoutMenu)}`)
     }
 

@@ -112,6 +112,7 @@ export class ExpressApiServer implements server.Api.Interface.IApiServer {
       'PUT:/workout/menu/:id': this.workoutHandler.updateMenu,
       'DELETE:/workout/menu/:id': this.workoutHandler.deleteMenu,
       'POST:/workout/play': this.workoutHandler.playWorkout,
+      'DELETE:/workout/play': this.workoutHandler.stopWorkout,
       'GET:/workout/history': this.workoutHandler.getWorkoutHistoryList,
 
       // running

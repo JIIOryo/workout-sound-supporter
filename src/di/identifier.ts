@@ -1,5 +1,8 @@
 export const Identifier = {
   Config: Symbol('Config'),
+  Domain: {
+    Workout: Symbol('Domain.Workout'),
+  },
   Repository: {
     RunningHistory: Symbol('Repository.RunningHistory'),
     RunningMenu: Symbol('Repository.RunningMenu'),
@@ -10,6 +13,7 @@ export const Identifier = {
   Infra: {
     Logger: Symbol('Infra.Logger'),
     Notify: Symbol('Infra.Notify'),
+    Sound: Symbol('Infra.Sound'),
   },
   Server: {
     Api: Symbol('Server.Api'),

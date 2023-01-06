@@ -19,5 +19,15 @@ export const prd: Config = {
     lineNotify: {
       enabled: true,
     },
+  },
+  sound: {
+    pythonScript: {
+      enabled: true,
+      scriptPath: 'script/python/sound.py',
+      command: 'python',
+      raspberryPi: {
+        pin: Number(process.env.SOUND_PIN) || 21,
+      },
+    },
   }
 }

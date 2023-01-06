@@ -71,6 +71,11 @@ export namespace PlayWorkout {
   export type Response = {}
 }
 
+export namespace StopWorkout {
+  export type Request = {}
+  export type Response = {}
+}
+
 export namespace GetWorkoutHistoryList {
   export type Request = {}
   export type Response = {

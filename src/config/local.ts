@@ -19,5 +19,15 @@ export const local: Config = {
     lineNotify: {
       enabled: true,
     },
+  },
+  sound: {
+    pythonScript: {
+      enabled: true,
+      scriptPath: 'script/python/sound_mock.py',
+      command: 'python3',
+      raspberryPi: {
+        pin: Number(process.env.SOUND_PIN) || 21,
+      },
+    },
   }
 }
