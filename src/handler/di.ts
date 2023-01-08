@@ -9,6 +9,7 @@ import * as di from '@/di'
  */
 export const inject = (container: Container): void => {
   container.bind<Impl.WorkoutHandler>(di.Identifier.Handler.Workout).to(Impl.WorkoutHandler)
+  container.bind<Impl.CommonHandler>(di.Identifier.Handler.Common).to(Impl.CommonHandler)
   // container.bind<Impl.RunHandler>(di.Identifier.Handler.Run).to(Impl.RunHandler)
   // container.bind<Impl.MealHandler>(di.Identifier.Handler.Meal).to(Impl.MealHandler)
 }

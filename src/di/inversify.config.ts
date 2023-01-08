@@ -43,6 +43,9 @@ infra.notify.di.inject(rootContainer, config.notification)
 // soundのinject
 infra.sound.di.inject(rootContainer, config.sound)
 
+// versionのinject
+infra.version.di.inject(rootContainer)
+
 // domainのinject
 domain.di.inject(rootContainer)
 

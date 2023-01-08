@@ -14,11 +14,13 @@ export const Identifier = {
     Logger: Symbol('Infra.Logger'),
     Notify: Symbol('Infra.Notify'),
     Sound: Symbol('Infra.Sound'),
+    Version: Symbol('Infra.Version'),
   },
   Server: {
     Api: Symbol('Server.Api'),
   },
   Handler: {
+    Common: Symbol('Handler.Common'),
     Workout: Symbol('Handler.Workout'),
     Run: Symbol('Handler.Run'),
     Meal: Symbol('Handler.Meal'),

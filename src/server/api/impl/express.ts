@@ -25,6 +25,7 @@ export class ExpressApiServer implements server.Api.Interface.IApiServer {
     @inject(di.Identifier.Infra.Logger) private readonly logger: infra.logger.Interface.ILogger,
 
     // workout
+    @inject(di.Identifier.Handler.Common) private readonly commonHandler: handler.Impl.CommonHandler,
     @inject(di.Identifier.Handler.Workout) private readonly workoutHandler: handler.Impl.WorkoutHandler,
     // @inject(di.Identifier.Handler.Run) private readonly runHandler: handler.Impl.RunHandler,
     // @inject(di.Identifier.Handler.Meal) private readonly mealHandler: handler.Impl.MealHandler,
@@ -105,6 +106,9 @@ export class ExpressApiServer implements server.Api.Interface.IApiServer {
     const router = express.Router()
 
     const route: Util.Dictionary<Util.Http.RouterKey, handler.Interface.IHandlerFunction> = {
+      // common
+      'GET:/version': this.commonHandler.getVersion,
+
       // workout
       'GET:/workout/menu': this.workoutHandler.getMenuList,
       'GET:/workout/menu/:id': this.workoutHandler.getMenu,
