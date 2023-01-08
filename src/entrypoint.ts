@@ -1,13 +1,15 @@
 import 'reflect-metadata'
 import 'source-map-support/register'
 
-import {logger, server} from '@'
+import {logger, server, version} from '@'
 
 const main = async () => {
   await server.setup()
   await server.start()
 
-  logger.info('workout sound supporter started!')
+  const thisAppVersion = await version.get()
+
+  logger.info(`workout sound supporter started! (version: ${thisAppVersion})`)
 }
 
 main()

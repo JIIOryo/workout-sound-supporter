@@ -13,7 +13,7 @@ export class GitVersion implements infra.version.Interface.IVersion {
 
   public get = async (): Promise<string> => {
     try {
-      const version = childProcess.execSync('git describe --tags').toString().trim()
+      const version = childProcess.execSync('git describe --tags HEAD').toString().trim()
       return version
     } catch (e) {
       this.logger.error('Failed to get version', e)

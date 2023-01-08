@@ -15,3 +15,5 @@ export {infra, lib}
 export const logger = di.container.get<infra.logger.Interface.ILogger>(di.Identifier.Infra.Logger)
 /** APIサーバー */
 export const server = di.container.get<_server.Api.Interface.IApiServer>(di.Identifier.Server.Api)
+/** version */
+export const version = di.container.get<infra.version.Interface.IVersion>(di.Identifier.Infra.Version)
