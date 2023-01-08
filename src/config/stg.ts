@@ -11,7 +11,7 @@ export const stg: Config = {
   server: {
     express: {
       enabled: true,
-      port: 5000,
+      port: Number(process.env.SERVER_PORT) || 4999,
     },
   },
   notification: {

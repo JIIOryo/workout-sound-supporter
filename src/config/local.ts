@@ -11,7 +11,7 @@ export const local: Config = {
   server: {
     express: {
       enabled: true,
-      port: 5000,
+      port: Number(process.env.SERVER_PORT) || 5000,
     },
   },
   notification: {
