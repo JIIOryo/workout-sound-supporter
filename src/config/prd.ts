@@ -24,7 +24,7 @@ export const prd: Config = {
     pythonScript: {
       enabled: true,
       scriptPath: 'script/python/sound.py',
-      command: 'python',
+      command: process.env.PYTHON_COMMAND || 'python3',
       raspberryPi: {
         pin: Number(process.env.SOUND_PIN) || 21,
       },

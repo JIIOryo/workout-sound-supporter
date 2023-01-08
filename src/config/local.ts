@@ -24,7 +24,7 @@ export const local: Config = {
     pythonScript: {
       enabled: true,
       scriptPath: 'script/python/sound_mock.py',
-      command: 'python3',
+      command: process.env.PYTHON_COMMAND || 'python3',
       raspberryPi: {
         pin: Number(process.env.SOUND_PIN) || 21,
       },
