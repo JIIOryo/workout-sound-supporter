@@ -16,6 +16,10 @@ export const inject = (container: Container, loggerConfig: Config['logger']): vo
       container.bind<infra.logger.Interface.ILogger>(di.Identifier.Infra.Logger).to(infra.logger.Impl.ConsoleLogger)
       break
     }
+    case CONSTANT.SYSTEM.LOGGER_TYPE.CONSOLE_WITH_FILE: {
+      container.bind<infra.logger.Interface.ILogger>(di.Identifier.Infra.Logger).to(infra.logger.Impl.ConsoleWithFileLogger)
+      break
+    }
     default: {
       throw new Error('not found logger')
     }

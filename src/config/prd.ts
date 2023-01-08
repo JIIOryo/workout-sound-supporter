@@ -6,7 +6,7 @@ export const prd: Config = {
     type: CONSTANT.SYSTEM.DB_TYPE.JSON,
   },
   logger: {
-    type: CONSTANT.SYSTEM.LOGGER_TYPE.CONSOLE,
+    type: CONSTANT.SYSTEM.LOGGER_TYPE.CONSOLE_WITH_FILE,
   },
   server: {
     express: {

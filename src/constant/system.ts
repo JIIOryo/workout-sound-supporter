@@ -22,6 +22,7 @@ export const DB_TYPE = {
  */
 export const LOGGER_TYPE = {
   CONSOLE: 'console',
+  CONSOLE_WITH_FILE: 'console_with_file',
 } as const
 
 /**
