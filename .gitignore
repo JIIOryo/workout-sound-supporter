@@ -12,3 +12,4 @@ log/*
 !log/.gitkeep
 
 .env
+nohup.out
