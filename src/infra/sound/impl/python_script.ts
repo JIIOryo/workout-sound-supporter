@@ -157,7 +157,7 @@ export class PythonScript implements infra.sound.Interface.ISound {
 
     // pythonのscriptを実行する
     const result = await new Promise<SoundPlayStatus>((resolve, reject) => {
-      const cp = childProcess.exec(command, (err, stdout, stderr) => {
+      const cp = childProcess.exec(command, {shell: 'bash'}, (err, stdout, stderr) => {
         if (err) {
           // killされた場合
           if (cp.signalCode === 'SIGKILL') {
