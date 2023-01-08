@@ -29,6 +29,7 @@ export const LOGGER_TYPE = {
  */
 export const ENV = {
   LOCAL: 'local',
+  STG: 'stg',
   PRD: 'prd',
 } as const
 
