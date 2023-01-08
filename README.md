@@ -8,6 +8,17 @@ Create an .env file, referring to sample.env.
 cp sample.env .env
 ```
 
+The next step is to set up Node.js.
+
+```sh
+# install npm modules
+npm ci
+
+# build for typescript
+npm run build
+```
+
+
 ## start
 
 Start the server.
